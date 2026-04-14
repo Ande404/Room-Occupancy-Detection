@@ -32,16 +32,27 @@ Built using PySpark to demonstrate scalable data processing, distributed computa
 
 ##  Setup
 
-### 1. Install dependencies
+### 1. Open any of the notebooks in Google Colab
 
-```bash
-pip install -r requirements.txt
-```
-### 2. Run project
+### 2. Generate GitHub Token
 
-```bash
-python scripts/run_pipeline.py
-```
+Go to https://github.com/settings/personal-access-tokens
+Create a new fine grained token
+- Default settings should be fine
+Save off the token for later
+
+### 3. Fetch your Google Drive path to the Google Drive folder
+
+Should be something like "Spring 2026/CIS 5570/Big-data-group-1/Room-Occupancy-Detection/"
+
+### 4. Define your Google Colab secrets
+
+BIG_DATA_TOKEN {GitHub Token}
+GIT_NAME {Your Full Name}
+GIT_EMAIL {Your Email}
+BIG_DATA_PATH /content/drive/MyDrive + {Your Google Drive path to the shared drive}
+
+### 5. If you swap notebooks you will need to re-enable these secrets
 
 ## Dataset
 

@@ -16,13 +16,17 @@ def initialize_project():
         GIT_NAME = userdata.get('GIT_NAME')
         REPO_NAME = "Room-Occupancy-Detection"
         GIT_EMAIL = userdata.get('GIT_EMAIL')
-    except Exception:
-        print("Error: Add all required KEYS to the Colab Secrets tab first!")
+        PROJECT_ROOT = userdata.get('BIG_DATA_PATH')
+    except userdata.SecretNotFoundError as SNFE:
+        print(f'Error: Add all required KEYS to the Colab Secrets tab first! {SNFE}')
+        return
+    except userdata.NotebookAccessError as NAE:
+        print(f'Error: Unable to access notebook! {NAE}')
         return
 
     # 3. Project Paths
     # Adjust this path if your shared folder name is different
-    PROJECT_ROOT = f"/content/drive/MyDrive/Group 1/{REPO_NAME}"
+    # PROJECT_ROOT = f"/content/drive/MyDrive/Group 1/{REPO_NAME}"
     
     if PROJECT_ROOT not in sys.path:
         sys.path.append(os.path.join(PROJECT_ROOT, 'src'))
